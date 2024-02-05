@@ -1,0 +1,1127 @@
+{
+	"info": {
+		"_postman_id": "58c94458-bd12-484a-b171-1ea3d3765149",
+		"name": "Pay sky Demo app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20165024"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Name\": \"Omar Khaled\",\r\n  \"Email\": \"o.abdelaty1112122@gmail.com\",\r\n  \"Password\": \"P@ssw0rd\",\r\n  \"UserType\": \"Employer\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}register",
+							"host": [
+								"{{app_url}}register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Name\": \"Omar Khaled\",\r\n  \"Email\": \"o.abdelaty1122@gmail.com\",\r\n  \"Password\": \"P@ssw0rd\",\r\n  \"UserType\": \"User\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}register",
+									"host": [
+										"{{app_url}}register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 14:47:52 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user registered succefully\",\n    \"statusCode\": 200\n}"
+						},
+						{
+							"name": "Employer Register",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"Name\": \"Omar Khaled\",\r\n  \"Email\": \"o.abdelaty11122@gmail.com\",\r\n  \"Password\": \"P@ssw0rd\",\r\n  \"UserType\": \"Employer\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}register",
+									"host": [
+										"{{app_url}}register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 14:48:17 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user registered succefully\",\n    \"statusCode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"if(pm.response.code == 200){\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.collectionVariables.set(\"token\", jsonData.data.accessToken);\r",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"Email\": \"o.abdelaty12@gmail.com\",\r\n  \"Password\": \"P@ssw0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}login",
+							"host": [
+								"{{app_url}}login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n  \"Email\": \"o.abdelaty2@gmail.com\",\r\n  \"Password\": \"P@ssw0rd\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}login",
+									"host": [
+										"{{app_url}}login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "740"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 14:47:24 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Login successful\",\n    \"data\": {\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzNDVoMDk4YmI4cmViZXJid3I0dnZiODk0NSIsImp0aSI6ImJhZTdiMjRmLTA2MGUtNDY2OC04ZjNjLTJhMTVlMzlmMDk1OCIsImlhdCI6IjE3MDY5NzE2NDQiLCJVc2VySWQiOiIxIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6Ik9tYXIgS2hhbGVkIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiby5hYmRlbGF0eTJAZ21haWwuY29tIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiRW1wbG95ZXIiLCJleHAiOjE3MDY5NzM0NDQsImlzcyI6Ijk4ODUyZTRkLTk3NTItNGM2Yy1iMDU0LWU0NGUwMTBhNTZjMSIsImF1ZCI6IlZhbGlkQXVkaWVuY2UifQ.BnszqERaRe1iRtLZJHM4KOMRBxRX5bl2AOG3nPs1xZg\"\n    },\n    \"statusCode\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Employer",
+			"item": [
+				{
+					"name": "Add Vacany",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"test3\",\r\n  \"description\": \"test3\",\r\n  \"maxApplications\": 2,\r\n  \"expiryDate\": \"2024-02-05\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}Employer/AddVacancy",
+							"host": [
+								"{{app_url}}Employer"
+							],
+							"path": [
+								"AddVacancy"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add Vacany",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"test3\",\r\n  \"description\": \"test3\",\r\n  \"maxApplications\": 2,\r\n  \"expiryDate\": \"2024-02-05\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Employer/AddVacancy",
+									"host": [
+										"{{app_url}}Employer"
+									],
+									"path": [
+										"AddVacancy"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 13:34:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"$id\": \"1\",\n    \"message\": \"Vacancy added successfully\",\n    \"statusCode\": 200\n}"
+						},
+						{
+							"name": "Add Vacany",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Employer/AddVacancy",
+									"host": [
+										"{{app_url}}Employer"
+									],
+									"path": [
+										"AddVacancy"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "174"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 04 Feb 2024 14:56:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Title\": [\n        \"Title is required\"\n    ],\n    \"ExpiryDate\": [\n        \"ExpiryDate is required\"\n    ],\n    \"Description\": [\n        \"Description is required\"\n    ],\n    \"MaxApplications\": [\n        \"MaxApplications must be greater than 0\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Vacancy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vacancyId\": 2,\r\n    \"title\": \"test\",\r\n    \"description\": \"test\",\r\n    \"maxApplications\": 1,\r\n    \"expiryDate\": \"2024-02-02\",\r\n    \"isActive\":true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}Employer/UpdateVacancy",
+							"host": [
+								"{{app_url}}Employer"
+							],
+							"path": [
+								"UpdateVacancy"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Vacancy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vacancyId\": 2,\r\n    \"title\": \"test\",\r\n    \"description\": \"test\",\r\n    \"maxApplications\": 1,\r\n    \"expiryDate\": \"2024-02-02\",\r\n    \"isActive\":true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Employer/UpdateVacancy",
+									"host": [
+										"{{app_url}}Employer"
+									],
+									"path": [
+										"UpdateVacancy"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 17:39:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Vacancy Updated Successfully\",\n    \"statusCode\": 200\n}"
+						},
+						{
+							"name": "Update Vacancy",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Employer/UpdateVacancy",
+									"host": [
+										"{{app_url}}Employer"
+									],
+									"path": [
+										"UpdateVacancy"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "223"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 04 Feb 2024 15:09:34 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"Title\": [\n        \"Title is required\"\n    ],\n    \"VacancyId\": [\n        \"The VacancyId field is required.\"\n    ],\n    \"ExpiryDate\": [\n        \"ExpiryDate is required\"\n    ],\n    \"Description\": [\n        \"Description is required\"\n    ],\n    \"MaxApplications\": [\n        \"MaxApplications must be greater than 0\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get applications in Vacany",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"vacancyId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}Vacancy/GetApplications",
+							"host": [
+								"{{app_url}}Vacancy"
+							],
+							"path": [
+								"GetApplications"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get applications in Vacancy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"vacancyId\": 3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Vacancy/GetApplications",
+									"host": [
+										"{{app_url}}Vacancy"
+									],
+									"path": [
+										"GetApplications"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "719"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 14:15:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Vacancies retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"applicantId\": 2,\n            \"vacancyId\": 3,\n            \"applicationDate\": \"2024-02-03T16:08:06.7555897\",\n            \"applicant\": {\n                \"id\": 2,\n                \"name\": \"Omar Khaled\",\n                \"email\": \"o.abdelaty12@gmail.com\",\n                \"userType\": \"User\"\n            },\n            \"vacancy\": {\n                \"id\": 3,\n                \"employerId\": 1,\n                \"title\": \"test1\",\n                \"description\": \"test1\",\n                \"expiryDate\": \"2024-02-05T00:00:00\",\n                \"maxApplications\": 2,\n                \"isActive\": true\n            }\n        },\n        {\n            \"id\": 4,\n            \"applicantId\": 3,\n            \"vacancyId\": 3,\n            \"applicationDate\": \"2024-02-03T16:15:15.6703294\",\n            \"applicant\": {\n                \"id\": 3,\n                \"name\": \"Omar Khaled\",\n                \"email\": \"o.abdelaty122@gmail.com\",\n                \"userType\": \"User\"\n            },\n            \"vacancy\": {\n                \"id\": 3,\n                \"employerId\": 1,\n                \"title\": \"test1\",\n                \"description\": \"test1\",\n                \"expiryDate\": \"2024-02-05T00:00:00\",\n                \"maxApplications\": 2,\n                \"isActive\": true\n            }\n        }\n    ],\n    \"statusCode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Deactivate Vacancy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vacancyId\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}Employer/DeactivateVacancy",
+							"host": [
+								"{{app_url}}Employer"
+							],
+							"path": [
+								"DeactivateVacancy"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Deactivate Vacancy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vacancyId\":2\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Employer/DeactivateVacancy",
+									"host": [
+										"{{app_url}}Employer"
+									],
+									"path": [
+										"DeactivateVacancy"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 14:20:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Vacancy deactivated successfully\",\n    \"statusCode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Vacancy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{app_url}}Employer/Vacancy/1",
+							"host": [
+								"{{app_url}}Employer"
+							],
+							"path": [
+								"Vacancy",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Vacancy",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{app_url}}Employer/Vacancy/1",
+									"host": [
+										"{{app_url}}Employer"
+									],
+									"path": [
+										"Vacancy",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "59"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 14:59:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Vacancy deleted successfully\",\n    \"statusCode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Employer Vacancies",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{app_url}}Employer/Vacancies",
+							"host": [
+								"{{app_url}}Employer"
+							],
+							"path": [
+								"Vacancies"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Employer Vacancies",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{app_url}}Employer/Vacancies",
+									"host": [
+										"{{app_url}}Employer"
+									],
+									"path": [
+										"Vacancies"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "748"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 14:20:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Vacancies retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"employerId\": 1,\n            \"title\": \"test\",\n            \"description\": \"test\",\n            \"expiryDate\": \"2024-02-02T00:00:00\",\n            \"maxApplications\": 1,\n            \"isActive\": false,\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 2,\n            \"employerId\": 1,\n            \"title\": \"test1\",\n            \"description\": \"test1\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": false,\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 3,\n            \"employerId\": 1,\n            \"title\": \"test1\",\n            \"description\": \"test1\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 4,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"employer\": null,\n            \"applications\": null\n        }\n    ],\n    \"statusCode\": 200\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Applicant",
+			"item": [
+				{
+					"name": "Get User applications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{app_url}}Applications/Get",
+							"host": [
+								"{{app_url}}Applications"
+							],
+							"path": [
+								"Get"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get User Applications",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{app_url}}Applications/Get",
+									"host": [
+										"{{app_url}}Applications"
+									],
+									"path": [
+										"Get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "418"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 15:47:49 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Applications retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"applicantId\": 2,\n            \"vacancyId\": 3,\n            \"applicationDate\": \"2024-02-03T16:08:06.7555897\",\n            \"applicant\": {\n                \"id\": 2,\n                \"name\": \"Omar Khaled\",\n                \"email\": \"o.abdelaty12@gmail.com\",\n                \"userType\": \"User\"\n            },\n            \"vacancy\": {\n                \"id\": 3,\n                \"employerId\": 1,\n                \"title\": \"test1\",\n                \"description\": \"test1\",\n                \"expiryDate\": \"2024-02-05T00:00:00\",\n                \"maxApplications\": 2,\n                \"isActive\": true,\n                \"applications\": null\n            }\n        }\n    ],\n    \"statusCode\": 200\n}"
+						}
+					]
+				},
+				{
+					"name": "Apply for Vacany",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"vacancyId\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}Applicatons/Apply",
+							"host": [
+								"{{app_url}}Applicatons"
+							],
+							"path": [
+								"Apply"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Apply for vacancy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"vacancyId\":3\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Applicatons/Apply",
+									"host": [
+										"{{app_url}}Applicatons"
+									],
+									"path": [
+										"Apply"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 03 Feb 2024 14:15:14 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Application submitted successfully\",\n    \"statusCode\": 200\n}"
+						},
+						{
+							"name": "Apply for Vacany",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Applicatons/Apply",
+									"host": [
+										"{{app_url}}Applicatons"
+									],
+									"path": [
+										"Apply"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 04 Feb 2024 15:17:31 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"VacancyId\": [\n        \"The VacancyId field is required.\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Search Vacacnies",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"queryString\": \"test\",\r\n  \"vacancyId\": null,\r\n  \"employerId\": null,\r\n  \"fromDate\": null,\r\n  \"toDate\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{app_url}}Applicatons/Search",
+							"host": [
+								"{{app_url}}Applicatons"
+							],
+							"path": [
+								"Search"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search Vacacnies",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"queryString\": \"\",\r\n  \"vacancyId\": 0,\r\n  \"employerId\": 1,\r\n  \"fromDate\": \"\",\r\n  \"toDate\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Applicatons/Search",
+									"host": [
+										"{{app_url}}Applicatons"
+									],
+									"path": [
+										"Search"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1292"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 04 Feb 2024 15:11:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Applications retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"employerId\": 1,\n            \"title\": \"test1\",\n            \"description\": \"test1\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"0001-01-01T00:00:00\",\n            \"updatedAt\": \"0001-01-01T00:00:00\",\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 4,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"0001-01-01T00:00:00\",\n            \"updatedAt\": \"0001-01-01T00:00:00\",\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 5,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"0001-01-01T00:00:00\",\n            \"updatedAt\": \"0001-01-01T00:00:00\",\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 6,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"2024-02-03T22:49:28.0691126\",\n            \"updatedAt\": \"2024-02-03T22:49:28.0691126\",\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 7,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"2024-02-04T00:17:48.8511457\",\n            \"updatedAt\": \"2024-02-04T00:17:48.8511457\",\n            \"employer\": null,\n            \"applications\": null\n        }\n    ],\n    \"statusCode\": 200\n}"
+						},
+						{
+							"name": "Search Vacacnies",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"queryString\": \"\",\r\n  \"vacancyId\": 0,\r\n  \"employerId\": null,\r\n  \"fromDate\": \"2024-02-02\",\r\n  \"toDate\": \"2024-02-03\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Applicatons/Search",
+									"host": [
+										"{{app_url}}Applicatons"
+									],
+									"path": [
+										"Search"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "328"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 04 Feb 2024 15:12:16 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Applications retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 6,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"2024-02-03T22:49:28.0691126\",\n            \"updatedAt\": \"2024-02-03T22:49:28.0691126\",\n            \"employer\": null,\n            \"applications\": null\n        }\n    ],\n    \"statusCode\": 200\n}"
+						},
+						{
+							"name": "Search Vacacnies",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"queryString\": \"test\",\r\n  \"vacancyId\": null,\r\n  \"employerId\": null,\r\n  \"fromDate\": null,\r\n  \"toDate\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{app_url}}Applicatons/Search",
+									"host": [
+										"{{app_url}}Applicatons"
+									],
+									"path": [
+										"Search"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Length",
+									"value": "1292"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 04 Feb 2024 15:12:54 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Kestrel"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Applications retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"employerId\": 1,\n            \"title\": \"test1\",\n            \"description\": \"test1\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"0001-01-01T00:00:00\",\n            \"updatedAt\": \"0001-01-01T00:00:00\",\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 4,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"0001-01-01T00:00:00\",\n            \"updatedAt\": \"0001-01-01T00:00:00\",\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 5,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"0001-01-01T00:00:00\",\n            \"updatedAt\": \"0001-01-01T00:00:00\",\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 6,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"2024-02-03T22:49:28.0691126\",\n            \"updatedAt\": \"2024-02-03T22:49:28.0691126\",\n            \"employer\": null,\n            \"applications\": null\n        },\n        {\n            \"id\": 7,\n            \"employerId\": 1,\n            \"title\": \"test3\",\n            \"description\": \"test3\",\n            \"expiryDate\": \"2024-02-05T00:00:00\",\n            \"maxApplications\": 2,\n            \"isActive\": true,\n            \"createdAt\": \"2024-02-04T00:17:48.8511457\",\n            \"updatedAt\": \"2024-02-04T00:17:48.8511457\",\n            \"employer\": null,\n            \"applications\": null\n        }\n    ],\n    \"statusCode\": 200\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "app_url",
+			"value": "https://localhost:7243/api/",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

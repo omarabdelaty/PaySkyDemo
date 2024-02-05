@@ -1,0 +1,9 @@
+kindly note that this is the first dotnet project. find the steps to setup the project
+
+1- update the database connection string in appsettings.json "DefaultConnection"
+2- create a database
+3- run migrations 
+4- create 2 users one type User, Employer using the register API in postman
+5 - the Employer folder is only accessable to employer
+6 - the applicant folder is only accessable to user of type User
+7 - find each request int he postman collection witha saved example
